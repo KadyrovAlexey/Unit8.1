@@ -24,7 +24,7 @@ public class Event {
     private Date date;
 
     private DateFormat dateFormat;
-
+    private EventType type;
     public Event(int id, Date date, String msg) {
         this.id = id;
         this.date = date;
@@ -37,7 +37,12 @@ public class Event {
         this.date = date;
         this.dateFormat = df;
     }
-
+    public Event(Date date, DateFormat df, EventType type) {
+        this.id = AUTO_ID.getAndIncrement();
+        this.date = date;
+        this.dateFormat = df;
+        this.type = type;
+    }
     public String getMsg() {
         return msg;
     }
@@ -57,7 +62,7 @@ public class Event {
     public DateFormat getDateFormat() {
         return dateFormat;
     }
-
+    public EventType getType() {return type;}
     public void setDateFormat(DateFormat dateFormat) {
         this.dateFormat = dateFormat;
     }
